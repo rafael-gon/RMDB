@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter';
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background: #181825;
+}
+
+/* Estiliza o "polegar" da scrollbar do Google Chrome, Safari e navegadores que usam a engine WebKit */
+::-webkit-scrollbar-thumb {
+  background-color: #313244;
+  border-radius: 10px;
+}
+

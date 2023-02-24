@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import axios from "axios";
+import Movies from "../components/movies";
+import Gender from "../components/gender";
+import PageSelector from "../components/pageSelector";
+import Logo from "../components/logo";
+
 
 const apiKey = "8820f597ad57ecd4cdb03eda10adcbeb";
 
@@ -16,6 +21,7 @@ api.interceptors.request.use((config) => {
 
 export default function App() {
   const [movies, setMovies] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -34,54 +40,36 @@ export default function App() {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
+
+    api
+      .get("genre/movie/list")
+      .then((res) => {
+        setGenres(res.data.genres);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
   }, [currentPage]);
 
+
   return (
-    <div>
-      <h1 id="">RMDB</h1>
-      <button
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        <IoIosArrowBack />
-      </button>
-      {currentPage}
-      <button
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      >
-        <IoIosArrowForward />
-      </button>
+    <div className='flex flex-col gap-8 p-6 bg-background-primary text-foreground items-center'>
+      <Logo />
+
+      <PageSelector back={() => setCurrentPage(currentPage - 1)} forward={() => setCurrentPage(currentPage + 1)} page={currentPage} total={totalPages}/>
+      
+
       {movies.map((movie) => (
         <div key={movie.id}>
-          <h1>{movie.title}</h1>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={`${movie.title} poster`}
+          <p></p>
+          <Movies id={movie.id} title={movie.title} adult={movie.adult} year={movie.release_date} desc={movie.overview} rate={movie.vote_average} poster={movie.poster_path} gender={movie.genre_ids.map((genreId) => (
+            <Gender key={genreId} gender={genres.find((genre) => genre.id === genreId)?.name} />
+          ))}
           />
-          <p>{movie.overview}</p>
-          <p>{movie.vote_average}</p>
         </div>
       ))}
 
-      <a href="#">
-
-        <button
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage(currentPage - 1)}
-        >
-          <IoIosArrowBack />
-        </button>
-      </a>
-      {currentPage}
-      <a href="#">
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage(currentPage + 1)}
-        >
-          <IoIosArrowForward />
-        </button>
-      </a>
+      <PageSelector up="#" back={() => setCurrentPage(currentPage - 1)} forward={() => setCurrentPage(currentPage + 1)} page={currentPage} total={totalPages}/>
     </div>
   );
 }
