@@ -16,7 +16,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#F5D0FE" />
           <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
           <meta name="description" content="Site pessoal criado por Rafael Goncalves" />
-          <title>Rafael</title>
+          <title>RMDB</title>
           
         </Head>
         <body>

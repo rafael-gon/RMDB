@@ -13,6 +13,7 @@ module.exports = {
       'xs': 14,
     },
     colors: {
+      transparent: 'transparent',
       black: '#000000',
       white: '#ffffff',
       foreground: '#CDD6F4',
