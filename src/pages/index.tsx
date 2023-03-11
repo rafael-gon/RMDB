@@ -37,7 +37,7 @@ export default function App() {
       if (entries[0].isIntersecting && currentPage < totalPages) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
-    }, { root: null, rootMargin: "20px", threshold: 1.0 });
+    }, { root: null});
 
     if (observer.current && totalPages > currentPage) {
       observer.current.observe(document.querySelector("#scrollObserver"));
