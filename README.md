@@ -1,4 +1,4 @@
-# Pokedex
+# RMDB
 
 This is a Movie data base site built using NextJS and TypeScript. It fetches data from the [The Movie Database API]([https://www.themoviedb.org/) and displays information about different movies.
 
