@@ -1,6 +1,6 @@
 export function Footer(props: any) {
   return (
-    <div className="flex flex-col items-center gap-2 text-center">
+    <div className="flex flex-col items-center gap-4 text-center">
       <div className="flex select-none flex-row items-center gap-6">
         <button
           onClick={() => props.setCurrentPage(props.currentPage - 1)}

@@ -15,7 +15,7 @@ export function Header(props: any) {
         <button
           onClick={() => props.setCurrentPage(props.currentPage - 1)}
           disabled={props.currentPage === 1}
-          className="rounded bg-neutral-950 px-6 py-2 text-lg font-bold uppercase hover:brightness-125 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:hover:brightness-100"
+          className="rounded bg-neutral-950 px-6 py-2 text-lg font-bold uppercase hover:brightness-125 disabled:cursor-not-allowed disabled:bg-neutral-500 disabled:text-neutral-700 disabled:hover:brightness-100 disabled:line-through"
         >
           anterior
         </button>
@@ -23,7 +23,7 @@ export function Header(props: any) {
         <button
           onClick={() => props.setCurrentPage(props.currentPage + 1)}
           disabled={props.currentPage === props.totalPages}
-          className="rounded bg-neutral-950 px-6 py-2 text-lg font-bold uppercase hover:brightness-125 disabled:cursor-not-allowed disabled:bg-neutral-400 disabled:hover:brightness-100"
+          className="rounded bg-neutral-950 px-6 py-2 text-lg font-bold uppercase hover:brightness-125 disabled:cursor-not-allowed disabled:bg-neutral-500 disabled:text-neutral-700 disabled:hover:brightness-100 disabled:line-through"
         >
           proximo
         </button>

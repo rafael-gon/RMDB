@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { IoIosStarOutline } from 'react-icons/io'
 
 export default function Home() {
-  const [base, setBase] = useState<unknown[]>([])
+  const [base, setBase] = useState<any[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(2)
   const [loading, setLoading] = useState<Boolean>(true)
@@ -67,7 +67,7 @@ export default function Home() {
 
                     <div className="flex flex-row items-center justify-center gap-2">
                       <IoIosStarOutline />
-                      <p>{item.vote_average}</p>
+                      <p>{item.vote_average} / 10</p>
                     </div>
                   </div>
                   <div className="flex w-80 items-center gap-3 overflow-x-auto overflow-y-hidden p-3">
